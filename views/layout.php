@@ -12,6 +12,11 @@
   <nav class="navbar navbar-expand-lg navbar-light bd-light mb-4">
     <div class="container">
       <a href="/" class="navbar-brand h1">FW</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/">Otro enlace</a>
+        </li>
+      </ul>
     </div>
   </nav>
   <div class="container">

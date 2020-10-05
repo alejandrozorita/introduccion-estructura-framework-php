@@ -2,6 +2,11 @@
 
 namespace App\Http;
 
+/**
+ * Class Request
+ *
+ * @package App\Http
+ */
 class Request
 {
     protected $segmentos = [];
@@ -25,6 +30,7 @@ class Request
           : $this->segmentos[1];
     }
 
+
     public function setMethod()
     {
         $this->method = empty($this->segmentos[2])
@@ -33,6 +39,9 @@ class Request
     }
 
 
+    /**
+     * @return string
+     */
     public function getController()
     {
         $controller = ucfirst($this->controller);
@@ -40,10 +49,12 @@ class Request
         return "App\Http\Controllers\\{$controller}Controller";
     }
 
+
     public function getMethod()
     {
         return $this->method;
     }
+
 
     public function send()
     {
@@ -52,9 +63,18 @@ class Request
 
         $response = call_user_func([
           new $controller(),
-            $method
+          $method
         ]);
-        $response->send();
+
+        try {
+            if ($response instanceof Response) {
+                $response->send();
+            } else {
+                throw new \Exception("Error processind Request", 1);
+            }
+        } catch (\Exception $e) {
+            echo "Detail {$e->getMessage()}";
+        }
     }
 
 }
