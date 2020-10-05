@@ -1,0 +1,20 @@
+{
+  "name": "alejandro/introduccion-estructura-framework-php",
+  "description": "Estrucutra y funcionamiento basíco de un framework desde cero",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Alejandro Zorita Hernández",
+      "email": "contacto@alejandrozorita.me"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/helpers.php"
+    ]
+  }
+}
